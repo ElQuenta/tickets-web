@@ -13,7 +13,6 @@ export const login = async ({
   password,
 }: LoginRequest): Promise<LoginResponse> => {
   try {
-    console.log("Login request:", { email, password });
     const response = await apiClient.post(
       `${BASE_URL}/login?useCookies=false`,
       {
@@ -34,7 +33,6 @@ export const register = async ({
   username,
 }: RegisterRequest): Promise<LoginResponse> => {
   try {
-    console.log("Register request:", { email, password, username });
     const response = await apiClient.post(`${BASE_URL}/register`, {
       email,
       password,

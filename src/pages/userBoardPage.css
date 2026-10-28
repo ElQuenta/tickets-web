@@ -1,0 +1,179 @@
+.users-list {
+  margin-top: 0;
+}
+.users-list-tools,
+.user-row-actions,
+.user-role-badges {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.users-list table {
+  min-width: 1120px;
+}
+.users-list tbody tr {
+  cursor: default;
+}
+.users-list td {
+  vertical-align: top;
+}
+.users-list td:nth-child(3) {
+  white-space: normal;
+}
+.users-list td:last-child {
+  width: auto;
+  padding: 14px 24px;
+}
+.user-name {
+  display: block;
+  margin-bottom: 5px;
+  color: #685575;
+  font-weight: 600;
+}
+.user-secondary {
+  display: block;
+  margin: 5px 0;
+  color: #82728e;
+  font-size: 13px;
+  line-height: 1.6;
+}
+.user-role-badges {
+  flex-wrap: wrap;
+}
+.user-badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 5px;
+  background: #f1eaf7;
+  color: #80649c;
+  font-size: 12px;
+  line-height: 1.5;
+}
+.user-badge-success {
+  background: #eaf4ed;
+  color: #608c70;
+}
+.user-badge-warning {
+  background: #fff3df;
+  color: #996b2f;
+}
+.user-row-actions {
+  flex-direction: column;
+  align-items: stretch;
+}
+.users-page .user-row-actions .MuiButton-root {
+  justify-content: flex-start;
+  padding: 5px 8px;
+  font-size: 13px;
+}
+.user-dialog .login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.user-dialog .login-field > label {
+  display: block;
+  margin-bottom: 8px;
+  color: #685575;
+  font-size: 14px;
+  font-weight: 600;
+}
+.user-dialog .login-field .MuiOutlinedInput-root {
+  border-radius: 8px;
+}
+.user-dialog .login-field .MuiOutlinedInput-notchedOutline {
+  border-color: #e4dfeb;
+}
+.user-dialog .login-field .MuiInputAdornment-root,
+.user-dialog .login-field .MuiIconButton-root {
+  color: #93869f;
+}
+.user-dialog .login-form .login-submit {
+  padding: 11px 18px;
+  border-radius: 8px;
+  background: #7051cf;
+  box-shadow: none;
+}
+.user-dialog .login-form .login-submit:hover {
+  background: #6041bd;
+}
+.user-dialog .login-form .login-submit.Mui-disabled {
+  background: #e7e1f2;
+  color: #79678f;
+}
+.user-dialog .MuiButton-root {
+  gap: 6px;
+}
+.user-edit-switches {
+  display: flex;
+  flex-direction: column;
+  color: #796985;
+}
+.user-readonly-data {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin: 0;
+  padding: 16px;
+  border-radius: 10px;
+  background: #faf7fd;
+}
+.user-readonly-data dt {
+  margin-bottom: 5px;
+  font-size: 13px;
+  color: #82728e;
+}
+.user-readonly-data dd {
+  margin: 0;
+  font-size: 14px;
+  color: #685575;
+  overflow-wrap: anywhere;
+}
+.user-role-options {
+  gap: 10px;
+  margin-top: 12px;
+}
+.user-dialog .user-role-card {
+  margin: 0;
+  padding: 9px 12px;
+  border: 1px solid #e8e0f3;
+  border-radius: 9px;
+  color: #796985;
+  cursor: pointer;
+  overflow-wrap: anywhere;
+}
+.user-dialog .user-role-card-selected {
+  border-color: #9273d5;
+  background: #f3edfc;
+  color: #7051a9;
+}
+.user-role-card:focus-within {
+  outline: 2px solid #7051cf;
+  outline-offset: 2px;
+}
+.user-current-roles,
+.user-role-help {
+  margin: 0;
+  color: #82728e;
+  font-size: 14px;
+  line-height: 1.7;
+}
+.user-roles-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 100px;
+  color: #82728e;
+}
+@media (max-width: 600px) {
+  .users-list .deleted-tickets-heading {
+    flex-wrap: wrap;
+  }
+  .users-list-tools {
+    margin-left: auto;
+  }
+  .user-readonly-data {
+    grid-template-columns: 1fr;
+  }
+}

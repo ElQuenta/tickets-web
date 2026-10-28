@@ -27,6 +27,7 @@ interface RegisterFormProps {
   setShowPassword: (show: boolean) => void;
   showConfirmPassword: boolean;
   setShowConfirmPassword: (show: boolean) => void;
+  submitLabel?: string;
 }
 
 const RegisterForm = ({
@@ -36,6 +37,7 @@ const RegisterForm = ({
   setShowPassword,
   showConfirmPassword,
   setShowConfirmPassword,
+  submitLabel = "Crear cuenta",
 }: RegisterFormProps) => {
   return (
     <form
@@ -159,7 +161,8 @@ const RegisterForm = ({
             formik.touched.confirmPassword && formik.errors.confirmPassword
           }
           error={
-            formik.touched.confirmPassword && Boolean(formik.errors.confirmPassword)
+            formik.touched.confirmPassword &&
+            Boolean(formik.errors.confirmPassword)
           }
           slotProps={{
             input: {
@@ -207,7 +210,7 @@ const RegisterForm = ({
             <CircularProgress size={18} color="inherit" /> Creando cuenta…
           </>
         ) : (
-          "Crear cuenta"
+          submitLabel
         )}
       </Button>
     </form>
