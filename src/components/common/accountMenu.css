@@ -1,0 +1,85 @@
+.account-menu-trigger {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 6px 8px;
+  margin-right: -8px;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  color: #292436;
+  font-family: inherit;
+  cursor: pointer;
+}
+.account-menu-trigger:hover,
+.account-menu-trigger[aria-expanded="true"] {
+  background: #ebe4f6;
+}
+.account-menu-trigger:focus-visible {
+  outline: 2px solid #7051cf;
+  outline-offset: 3px;
+}
+.account-menu-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+}
+.account-menu-info strong {
+  max-width: 180px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 16px;
+  font-weight: 650;
+}
+.account-menu-info > span {
+  font-size: 14px;
+  color: #84788f;
+}
+.account-menu-avatar {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  background: #e5dcf5;
+  color: #7051a9;
+  font-size: 18px;
+  font-weight: 700;
+  box-shadow: 0 2px 6px #49375e08;
+}
+.account-menu-chevron {
+  color: #806b98;
+}
+.account-menu-paper.MuiPaper-root {
+  min-width: 210px;
+  margin-top: 8px;
+  padding: 4px;
+  border: 1px solid #e5ddef;
+  border-radius: 12px;
+  box-shadow: 0 12px 36px #49375e1a;
+}
+.account-menu-paper .account-menu-logout {
+  display: flex;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  color: #7051a9;
+  font-family: "Segoe UI", sans-serif;
+  font-size: 16px;
+}
+.account-menu-paper .account-menu-logout:hover,
+.account-menu-paper .account-menu-logout.Mui-focusVisible {
+  background: #f2ecfc;
+}
+@media (max-width: 600px) {
+  .account-menu-trigger {
+    gap: 8px;
+  }
+  .account-menu-info strong {
+    max-width: 100px;
+  }
+}

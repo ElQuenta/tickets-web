@@ -1,0 +1,23 @@
+.app-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100svh;
+  background: #f4f1fa;
+  color: #292436;
+  font-family: "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+.app-layout > .app-header {
+  border-bottom: 1px solid #e9e3f1;
+}
+.app-layout-main {
+  flex: 1;
+  min-width: 0;
+}
+@media (max-width: 900px) {
+  .app-layout > .app-header .app-header-inner {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}

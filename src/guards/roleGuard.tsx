@@ -17,7 +17,7 @@ const RoleGuard = ({ allowedRoles, children }: RoleGuardProps) => {
   }
 
   if (!hasAllowedRole) {
-    return <Navigate to="/app/dashboard" replace />;
+    return <Navigate to="/tickets" replace />;
   }
 
   return children === undefined ? <Outlet /> : children;

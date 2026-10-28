@@ -14,5 +14,9 @@ export const allowedToView = (
   }
 
   const roles = user?.roles;
-  return Array.isArray(roles) && roles.some((role) => allowedRoles.includes(role));
+  const normalizedAllowedRoles = allowedRoles.map((role) => role.toLowerCase());
+  return (
+    Array.isArray(roles) &&
+    roles.some((role) => normalizedAllowedRoles.includes(role.toLowerCase()))
+  );
 };

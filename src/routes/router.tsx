@@ -5,8 +5,7 @@ import { lazy } from "react";
 import Layout from "../layout/layout";
 
 const LoginPage = lazy(() => import("../pages/loginPage"));
-const DashboardPage = lazy(() => import("../pages/dashboardPage"));
-const TicketDetailsPage = lazy(() => import("../pages/ticketDetailsPage"));
+const TicketBoardPage = lazy(() => import("../pages/ticketboardPage"));
 const UserBoardPage = lazy(() => import("../pages/userBoardPage"));
 
 export default function Router() {
@@ -23,8 +22,7 @@ export default function Router() {
             </ProtectedRoutes>
           }
         >
-          <Route path="tickets" element={<DashboardPage />} />
-          <Route path="tickets/:ticketId" element={<TicketDetailsPage />} />
+          <Route path="tickets" element={<TicketBoardPage />} />
           <Route
             path="/"
             element={<RoleProtectedRoutes allowedRoles={["admin"]} />}
