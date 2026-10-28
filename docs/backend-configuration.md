@@ -13,6 +13,16 @@ del backend, sin `/api`. Se conservan método, query, cuerpo, token Bearer,
 estado HTTP y contenido de la respuesta. El navegador se comunica con el
 mismo origen del frontend, por lo que no necesita CORS hacia el backend.
 
+Para las peticiones al proxy, el frontend también envía el token en
+`X-Tickets-Authorization`. Azure Static Web Apps utiliza `Authorization`
+para su propia comunicación con la función y puede sustituir su valor.
+El proxy recupera el token del encabezado propio y lo restaura como
+`Authorization: Bearer ...` al llamar al backend. Esto evita los `401`
+inmediatamente después del login por sustitución del token.
+Las llamadas directas con una URL absoluta usan solo `Authorization`.
+Este comportamiento de Azure está descrito en el
+[issue oficial de Static Web Apps](https://github.com/Azure/static-web-apps/issues/34).
+
 ## Desarrollo local
 
 Instala las dependencias con `npm ci` y configura `.env.local`
@@ -60,6 +70,7 @@ Los errores HTTP que responde el backend se conservan.
 ```sh
 npm run build
 npm run lint
+npm test
 npm --prefix api ci
 npm --prefix api test
 ```

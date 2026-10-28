@@ -17,6 +17,11 @@ before(async () => {
   backend = createServer(async (request, response) => {
     const chunks = [];
     for await (const chunk of request) chunks.push(chunk);
+    if (request.url === '/api/protected' && request.headers.authorization !== 'Bearer current-user-token') {
+      response.writeHead(401);
+      response.end();
+      return;
+    }
     if (request.url === '/api/compressed') {
       response.setHeader('content-encoding', 'gzip');
       response.end(gzipSync('respuesta comprimida'));
@@ -38,6 +43,7 @@ before(async () => {
       url: request.url,
       method: request.method,
       authorization: request.headers.authorization,
+      transportAuthorization: request.headers['x-tickets-authorization'],
       contentType: request.headers['content-type'],
       host: request.headers.host,
       body: Buffer.concat(chunks).toString(),
@@ -86,6 +92,20 @@ test('reenvía login, JWT y cuerpos de POST, PUT, PATCH y DELETE sin cambios', a
     assert.equal(body.contentType, 'application/json');
     assert.equal(body.body, payload);
   }
+});
+
+test('restaura el token del usuario cuando Azure sustituye Authorization', async () => {
+  process.env.API_PROXY_TARGET = backendOrigin;
+  const platformHeaders = { authorization: 'Bearer azure-platform-token' };
+  assert.equal((await invoke('/api/protected', { headers: platformHeaders })).status, 401);
+
+  const response = await invoke('/api/protected', {
+    headers: { ...platformHeaders, 'X-Tickets-Authorization': 'Bearer current-user-token' },
+  });
+  assert.equal(response.status, 200);
+  const body = await response.json();
+  assert.equal(body.authorization, 'Bearer current-user-token');
+  assert.equal(body.transportAuthorization, undefined);
 });
 
 test('conserva los errores HTTP y encabezados de autenticación del backend', async () => {

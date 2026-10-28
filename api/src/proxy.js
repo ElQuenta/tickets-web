@@ -40,10 +40,14 @@ export async function proxyRequest(request, context) {
   backendUrl.pathname = incomingUrl.pathname;
   backendUrl.search = incomingUrl.search;
   const headers = new Headers();
-  for (const name of ['accept', 'authorization', 'content-type', 'if-none-match', 'if-modified-since']) {
+  for (const name of ['accept', 'content-type', 'if-none-match', 'if-modified-since']) {
     const value = request.headers.get(name);
     if (value) headers.set(name, value);
   }
+  // SWA usa Authorization para autenticar su llamada a la función.
+  // Recuperar el token de la aplicación y enviarlo al backend con su nombre estándar.
+  const authorization = request.headers.get('x-tickets-authorization') || request.headers.get('authorization');
+  if (authorization) headers.set('authorization', authorization);
 
   try {
     const upstream = await fetch(backendUrl, {
