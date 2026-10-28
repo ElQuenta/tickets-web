@@ -2,9 +2,18 @@ import react, { reactCompilerPreset } from '@vitejs/plugin-react'
 import babel from '@rolldown/plugin-babel'
 import { defineConfig, loadEnv } from 'vite'
 
-export default defineConfig(({ mode }) => {
+export default defineConfig(({ mode, command, isPreview }) => {
+  const plugins = [
+    react(),
+    babel({ presets: [reactCompilerPreset()] })
+  ]
+
+  if (command !== 'serve' || isPreview) {
+    return { plugins }
+  }
+
   const env = loadEnv(mode, process.cwd(), '')
-  const proxyTarget = env.API_PROXY_TARGET || 'https://localhost:7272'
+  const proxyTarget = env.API_PROXY_TARGET?.trim() || 'https://localhost:7272'
   let backendUrl: URL
 
   try {
@@ -20,10 +29,7 @@ export default defineConfig(({ mode }) => {
   const isLocalBackend = ['localhost', '127.0.0.1', '[::1]'].includes(backendUrl.hostname)
 
   return {
-    plugins: [
-      react(),
-      babel({ presets: [reactCompilerPreset()] })
-    ],
+    plugins,
     server: {
       proxy: {
         '/api': {
