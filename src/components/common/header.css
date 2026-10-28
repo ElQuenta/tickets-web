@@ -1,0 +1,11 @@
+body:has(.app-header) { margin: 0; }
+.app-header { width: 100%; font-family: "Segoe UI", sans-serif; }
+.app-header, .app-header * { box-sizing: border-box; }
+.app-header-inner { min-height: 80px; max-width: 1280px; margin: 0 auto; padding: 16px 40px; display: flex; align-items: center; flex-wrap: wrap; gap: 24px; }
+.app-header-brand { display: inline-flex; align-items: center; gap: 9px; color: #30264c; font-size: 24px; font-weight: 750; letter-spacing: -.8px; text-decoration: none; flex-shrink: 0; }
+.app-header-brand-icon { display: grid; place-items: center; width: 32px; height: 32px; background: #7051cf; color: white; border-radius: 9px; }
+.app-header-brand-dot { color: #7051cf; }
+.app-header-content { flex: 1; min-width: 0; }
+.app-header-actions { display: flex; align-items: center; gap: 12px; margin-left: auto; }
+.app-header-brand:focus-visible { outline: 2px solid #7051cf; outline-offset: 6px; border-radius: 4px; }
+@media (max-width: 480px) { .app-header-inner { min-height: 72px; padding: 16px 24px; gap: 16px; } }

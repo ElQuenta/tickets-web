@@ -1,0 +1,48 @@
+.login-page {
+  --login-purple: #7051cf;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100svh;
+  background: #f4f1fa;
+  color: #292436;
+  font-family: "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+.login-page, .login-page * { box-sizing: border-box; }
+.login-main { flex: 1; display: grid; place-items: center; padding: 40px 24px 100px; }
+.login-card { position: relative; isolation: isolate; width: 100%; max-width: 420px; padding: 38px 36px 36px; border: 1px solid #eee9f4; border-radius: 18px; background: #fff; box-shadow: 0 16px 48px #3b28540a; }
+.login-card::before { content: ""; position: absolute; z-index: -2; inset: -9px 10px 9px; border: 1px solid #ddd3ee; border-radius: 18px; background: #e9e2f5; transform: rotate(-3deg); pointer-events: none; }
+.login-card::after { content: ""; position: absolute; z-index: -1; inset: 0; border-radius: inherit; background: #fff; pointer-events: none; }
+.login-card-label { display: inline-flex; align-items: center; gap: 6px; padding: 6px 8px; border-radius: 5px; background: #f2ecfc; color: #7954b2; font-size: 8px; font-weight: 700; letter-spacing: .8px; }
+.login-card-label > span { height: 4px; width: 4px; background: #9873cc; border-radius: 50%; }
+.login-card-heading { padding-bottom: 25px; border-bottom: 1px dashed #e9e2f0; }
+.login-card h1 { margin: 21px 0 8px; font-size: 28px; font-weight: 650; line-height: 1.2; letter-spacing: -.9px; }
+.login-card-heading p { margin: 0; font-size: 13px; color: #7a7284; line-height: 1.7; }
+.login-mini-card { position: absolute; right: -22px; bottom: -30px; display: flex; align-items: center; gap: 11px; padding: 14px 20px 14px 14px; border: 1px solid #eee9f4; border-radius: 12px; background: #fff; box-shadow: 0 10px 30px #49375e12; transform: rotate(3deg); pointer-events: none; }
+.login-mini-card-icon { display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: #eaf4ed; color: #608c70; }
+.login-mini-card strong, .login-mini-card small { display: block; }
+.login-mini-card strong { font-size: 11px; font-weight: 650; }
+.login-mini-card small { margin-top: 4px; color: #7f758a; font-size: 9px; }
+.login-form { margin-top: 26px; }
+.login-field { margin-bottom: 21px; }
+.login-field > label { display: block; margin-bottom: 8px; font-size: 12px; font-weight: 600; color: #50465e; }
+.login-field .MuiOutlinedInput-root { border-radius: 8px; background: #fff; font-family: inherit; font-size: 13px; transition: box-shadow .2s; }
+.login-field .MuiOutlinedInput-input { padding-top: 14px; padding-bottom: 14px; }
+.login-field .MuiOutlinedInput-notchedOutline { border-color: #e4dfeb; }
+.login-field .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline { border-color: #b5a1dd; }
+.login-field .MuiOutlinedInput-root.Mui-focused { box-shadow: 0 0 0 3px #7051cf0d; }
+.login-field .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline { border-color: var(--login-purple); }
+.login-field .MuiInputAdornment-root, .login-field .MuiIconButton-root { color: #93869f; }
+.login-field .MuiFormHelperText-root { margin-left: 0; }
+.login-form .login-submit { display: flex; gap: 9px; padding: 13px 18px; margin-top: 7px; border-radius: 8px; background: var(--login-purple); box-shadow: none; text-transform: none; font-family: inherit; font-size: 13px; font-weight: 600; }
+.login-form .login-submit:hover { background: #6041bd; box-shadow: none; }
+.login-form .login-submit.Mui-disabled { background: #e7e1f2; color: #79678f; }
+.login-form .login-submit .MuiButton-endIcon { margin-left: auto; }
+@media (max-width: 480px) {
+  .login-main { padding: 32px 20px 72px; }
+  .login-card { padding: 30px 24px; }
+  .login-card h1 { font-size: 26px; }
+  .login-mini-card { right: 8px; }
+}
+@media (max-height: 600px) { .login-main { padding-top: 24px; padding-bottom: 32px; } }
